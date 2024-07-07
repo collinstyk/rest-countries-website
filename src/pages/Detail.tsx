@@ -9,6 +9,7 @@ import useTheme from "../hooks/useTheme";
 import Button from "../components/Button";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useEffect, useMemo, useState } from "react";
+import { CountryProps } from "../components/CountryCard";
 
 function Detail() {
   // working with react router
@@ -31,6 +32,8 @@ function Detail() {
     queryFn: () => getCountryDetails(id),
   });
 
+  console.log(countryData);
+
   const [neighboursData, setNeighboursData] = useState<unknown[]>([]);
 
   // fetching neighboursData
@@ -51,27 +54,32 @@ function Detail() {
 
   if (isLoading) return;
 
-  const [country] = countryData;
+  const country: CountryProps = countryData[0];
   const {
     name: { common: commonName, nativeName },
     population,
     region,
-    subregion,
-    capital: [capital],
+    subregion: subRegion,
+    capital: capitalData,
     tld: [tld],
     currencies,
     languages,
   } = country;
 
-  const languagesString = Object.values(languages).join(", ");
+  const [capital] = capitalData ? capitalData : ["nill"];
+
+  const languagesString = languages
+    ? Object.values(languages).join(", ")
+    : "nill";
 
   //@ts-ignore
-  const currency = Object.values(currencies)[0].name;
+  const currency = currencies ? Object.values(currencies)[0].name : "nill";
 
-  const nativeNameArr = Object.values(nativeName);
-  const lastIndex = Object.values(nativeName).length - 1;
+  const nativeNameArr = nativeName ? Object.values(nativeName) : [undefined];
+  const lastIndex = nativeName ? Object.values(nativeName).length - 1 : 0;
   // @ts-ignore
-  const commonNativeName = nativeNameArr[lastIndex].common;
+  const commonNativeName = nativeNameArr[lastIndex]?.common ?? "nill";
+  const subregion = subRegion || "nill";
 
   return (
     <div

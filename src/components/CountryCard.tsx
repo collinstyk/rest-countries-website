@@ -4,14 +4,18 @@ import useTheme from "../hooks/useTheme";
 
 export interface CountryProps {
   borders: string[];
-  capital: string[];
+  capital?: string[];
   flags: {
     png: string;
     alt: string;
   };
-  name: { common: string; official: string };
+  name: { common: string; official: string; nativeName?: object };
   population: number;
+  subregion: string;
+  tld: string[];
+  currencies?: number;
   region: string;
+  languages?: object;
   fifa: string;
   area: number;
   cca2: string;
