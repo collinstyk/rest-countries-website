@@ -1,4 +1,4 @@
-import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
+import { IoMoonOutline, IoMoonSharp, IoSunnySharp } from "react-icons/io5";
 import Button from "../components/Button";
 
 import useTheme from "../hooks/useTheme";
@@ -28,8 +28,8 @@ function Header() {
         {isLight && (
           <IoMoonOutline stroke="hsl(200,15%,8%)" className="m-auto" />
         )}
-        {!isLight && <IoMoonSharp fill="white" className="m-auto" />}
-        Dark mode
+        {!isLight && <IoSunnySharp fill="white" className="m-auto" />}
+        {isLight ? "Light mode" : "Dark mode"}
       </Button>
     </div>
   );
