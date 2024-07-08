@@ -25,11 +25,9 @@ function Header() {
         className="pr-0"
         onClick={toggleTheme}
       >
-        {isLight && (
-          <IoMoonOutline stroke="hsl(200,15%,8%)" className="m-auto" />
-        )}
+        {isLight && <IoMoonSharp fill="hsl(200,15%,8%)" className="m-auto" />}
         {!isLight && <IoSunnySharp fill="white" className="m-auto" />}
-        {isLight ? "Light mode" : "Dark mode"}
+        {isLight ? "Dark mode" : "Light mode"}
       </Button>
     </div>
   );
