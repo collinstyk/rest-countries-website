@@ -1,4 +1,4 @@
-import { IoMoonOutline, IoMoonSharp, IoSunnySharp } from "react-icons/io5";
+import { IoMoonSharp, IoSunnySharp } from "react-icons/io5";
 import Button from "../components/Button";
 
 import useTheme from "../hooks/useTheme";
