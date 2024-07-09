@@ -32,8 +32,6 @@ function Detail() {
     queryFn: () => getCountryDetails(id),
   });
 
-  console.log(countryData);
-
   const [neighboursData, setNeighboursData] = useState<unknown[]>([]);
 
   // fetching neighboursData

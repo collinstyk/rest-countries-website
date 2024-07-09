@@ -3,18 +3,17 @@ import "leaflet/dist/leaflet.css";
 import { useParams, useSearchParams } from "react-router-dom";
 
 function Map() {
-  const [searchParams] = useSearchParams();
   const { id: countryName } = useParams();
+
+  const [searchParams] = useSearchParams();
   const latLng = searchParams.get("latlng") as string;
   const [lat, lng] = latLng.split(",").map((string) => Number(string));
-
-  console.log(countryName);
 
   return (
     <MapContainer
       center={[lat, lng]}
       zoom={6}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       className="h-full"
     >
       <TileLayer
