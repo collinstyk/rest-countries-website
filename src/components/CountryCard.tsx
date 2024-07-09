@@ -21,6 +21,7 @@ export interface CountryProps {
   cca2: string;
   cca3: string;
   ccn3: string;
+  latlng: number[];
 }
 
 type Neighbours = string[] | undefined;

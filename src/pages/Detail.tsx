@@ -32,6 +32,8 @@ function Detail() {
     queryFn: () => getCountryDetails(id),
   });
 
+  console.log(countryData);
+
   const [neighboursData, setNeighboursData] = useState<unknown[]>([]);
 
   // fetching neighboursData
@@ -57,6 +59,7 @@ function Detail() {
     name: { common: commonName, nativeName },
     population,
     region,
+    latlng,
     subregion: subRegion,
     capital: capitalData,
     tld: [tld],
@@ -79,18 +82,37 @@ function Detail() {
   const commonNativeName = nativeNameArr[lastIndex]?.common ?? "nill";
   const subregion = subRegion || "nill";
 
+  // Latitude and Longitude to searchParams
+  const positionParams = latlng.join(",");
+
   return (
     <div
       className={`max-h-fit min-h-dvh px-3 pb-6 pt-10 sm:px-8 sm:pb-0 md:min-h-[90dvh] md:px-10 lg:px-14 ${isLight ? "bg-paper-light text-light" : "bg-paper-dark text-dark"}`}
     >
-      <Button
-        size={"sm"}
-        variant={isLight ? "light" : "dark"}
-        shadow="lg"
-        onClick={() => navigate(-1)}
-      >
-        <FaArrowLeftLong /> Back
-      </Button>
+      <div className="flex w-full justify-between">
+        <Button
+          size={"sm"}
+          variant={isLight ? "light" : "dark"}
+          shadow="lg"
+          onClick={() => navigate(-1)}
+        >
+          <FaArrowLeftLong /> Back
+        </Button>
+
+        <Button
+          variant={isLight ? "light" : "dark"}
+          shadow="lg"
+          size="md"
+          onClick={() => {
+            navigate(
+              `/country-details/map/${commonName}?latlng=${positionParams}`,
+            );
+          }}
+        >
+          View in map
+        </Button>
+      </div>
+
       <div className="my-12 flex w-full flex-col justify-between gap-8 sm:h-[21rem] sm:flex-row sm:gap-6 lg:h-80">
         <div className="h-1/3 w-full shadow-md sm:h-full md:w-1/2 lg:w-2/5">
           <img
