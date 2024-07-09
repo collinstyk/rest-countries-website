@@ -92,7 +92,7 @@ function Detail() {
         <FaArrowLeftLong /> Back
       </Button>
       <div className="my-12 flex w-full flex-col justify-between gap-8 sm:h-[21rem] sm:flex-row sm:gap-6 lg:h-80">
-        <div className="h-1/3 w-full sm:h-full md:w-1/2 lg:w-2/5">
+        <div className="h-1/3 w-full shadow-md sm:h-full md:w-1/2 lg:w-2/5">
           <img
             src={country.flags.png}
             alt={country.flags.alt}

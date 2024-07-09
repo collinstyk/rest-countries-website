@@ -42,27 +42,6 @@ function CountryCard({ country }: Props) {
 
   const neighbours: Neighbours = borders || undefined;
 
-  // const query = useQueries({
-  //   queries: neighbours.map((neighbour) => ({
-  //     queryKey: ["neighbours", neighbour],
-  //     queryFn: () => getNeighbouringCountry(neighbour),
-  //   })),
-  // });
-
-  // const countryCardRef = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   if (countryCardRef.current) {
-  //     if (!query) return;
-  //     const data = query.map((item) => {
-  //       if (!item.isLoading) return item.data;
-  //     });
-  //     countryCardRef.current.addEventListener("click", () => {
-  //       const dataString = JSON.stringify(data);
-  //       localStorage.setItem("borders", dataString);
-  //     });
-  //   }
-  // }, [query]);
-
   const capitals = capitalArr ? capitalArr.join(", ") : "no capital";
 
   const navigate = useNavigate();
@@ -73,7 +52,7 @@ function CountryCard({ country }: Props) {
 
   return (
     <div
-      className={`h-96 w-[17rem] cursor-pointer rounded-md shadow-lg hover:opacity-90 ${theme === "Light" ? "bg-element-light" : "bg-element-dark"}`}
+      className={`xs:w-[45%] mb-8 h-96 w-[17.5rem] cursor-pointer rounded-md shadow-lg hover:opacity-90 md:w-[30%] lg:mb-auto lg:w-auto ${theme === "Light" ? "bg-element-light" : "bg-element-dark"}`}
       onMouseEnter={() => {
         imageRef.current?.classList.toggle("scale-125");
       }}

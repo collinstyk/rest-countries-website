@@ -3,7 +3,7 @@ import Header from "./Header";
 
 function AppLayout() {
   return (
-    <div className="mx-auto min-h-dvh max-w-[1440px]">
+    <div className="mx-auto min-h-dvh max-w-[1536px]">
       <Header />
 
       <main>

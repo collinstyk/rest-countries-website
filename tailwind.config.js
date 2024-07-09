@@ -16,6 +16,9 @@ export default {
         "paper-dark": "hsl(207,26%,17%)",
         "paper-light": "hsl(0,0%,98%)",
       },
+      screens: {
+        xs: "(min-width:600px)",
+      },
     },
   },
   plugins: [],

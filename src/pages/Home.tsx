@@ -74,7 +74,7 @@ function Home() {
           placeholder="Filter by Region"
         />
       </div>
-      <div className="flex w-full flex-wrap justify-center gap-8 pt-8 md:justify-between md:gap-16">
+      <div className="xs:gap-[10%] flex w-full flex-wrap justify-center pt-16 md:gap-[5%] lg:grid lg:grid-cols-3 lg:gap-x-24 lg:gap-y-12 xl:grid-cols-4 xl:gap-x-20">
         {isLoading && <Loading />}
         {!isLoading &&
           countries.map((country: CountryProps) => (
