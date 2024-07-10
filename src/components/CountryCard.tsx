@@ -53,7 +53,7 @@ function CountryCard({ country }: Props) {
 
   return (
     <div
-      className={`xs:w-[45%] mb-8 h-96 w-[17.5rem] cursor-pointer rounded-md shadow-lg hover:opacity-90 md:w-[30%] lg:mb-auto lg:w-auto ${theme === "Light" ? "bg-element-light" : "bg-element-dark"}`}
+      className={`mb-8 h-[22.5rem] w-[17.5rem] cursor-pointer rounded-md shadow-lg hover:opacity-90 md:w-[30%] lg:mb-auto lg:w-auto xs:w-[45%] ${theme === "Light" ? "bg-element-light" : "bg-element-dark"}`}
       onMouseEnter={() => {
         imageRef.current?.classList.toggle("scale-125");
       }}
