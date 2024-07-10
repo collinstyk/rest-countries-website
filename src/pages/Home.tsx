@@ -33,11 +33,13 @@ function Home() {
 
   useEffect(() => {
     if (data) {
-      const filtered = data.filter(
-        (item: CountryProps) =>
-          item.name.common.toLowerCase().includes(searchInput.toLowerCase()) ||
-          item.name.official.toLowerCase().includes(searchInput.toLowerCase()),
-      );
+      const filtered = data.filter((item: CountryProps) => {
+        const trimmedInput = searchInput.trim();
+        return (
+          item.name.common.toLowerCase().includes(trimmedInput.toLowerCase()) ||
+          item.name.official.toLowerCase().includes(trimmedInput.toLowerCase())
+        );
+      });
       setFilteredCountries(filtered);
     }
   }, [searchInput, data]);
@@ -74,7 +76,7 @@ function Home() {
           placeholder="Filter by Region"
         />
       </div>
-      <div className="xs:gap-[10%] flex w-full flex-wrap justify-center pt-16 md:gap-[5%] lg:grid lg:grid-cols-3 lg:gap-x-24 lg:gap-y-12 xl:grid-cols-4 xl:gap-x-20">
+      <div className="flex w-full flex-wrap justify-center pt-16 md:gap-[5%] lg:grid lg:grid-cols-3 lg:gap-x-24 lg:gap-y-12 xl:grid-cols-4 xl:gap-x-20 xs:gap-[10%]">
         {isLoading && <Loading />}
         {!isLoading &&
           countries.map((country: CountryProps) => (
