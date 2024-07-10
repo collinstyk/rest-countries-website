@@ -67,6 +67,8 @@ function Detail() {
 
   const [capital] = capitalData ? capitalData : ["nill"];
 
+  const formattedPopulation = population.toLocaleString("en-US");
+
   const languagesString = languages
     ? Object.values(languages).join(", ")
     : "nill";
@@ -129,7 +131,8 @@ function Detail() {
                   {commonNativeName}
                 </p>
                 <p className="text-sm font-light">
-                  <span className="font-medium">Population:</span> {population}
+                  <span className="font-medium">Population:</span>{" "}
+                  {formattedPopulation}
                 </p>
                 <p className="text-sm font-light">
                   <span className="font-medium">Region:</span> {region}

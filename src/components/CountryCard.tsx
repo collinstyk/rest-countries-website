@@ -51,6 +51,8 @@ function CountryCard({ country }: Props) {
 
   const imageRef = useRef<HTMLImageElement>(null);
 
+  const formattedPopulation = population.toLocaleString("en-US");
+
   return (
     <div
       className={`mb-8 h-[22.5rem] w-[17.5rem] cursor-pointer rounded-md shadow-lg hover:opacity-90 md:w-[30%] lg:mb-auto lg:w-auto xs:w-[45%] ${theme === "Light" ? "bg-element-light" : "bg-element-dark"}`}
@@ -84,7 +86,7 @@ function CountryCard({ country }: Props) {
         <p
           className={`text-sm font-extralight leading-6 ${theme === "Light" ? "text-light" : "text-dark"}`}
         >
-          <span className="font-bold">Population:</span> {population}
+          <span className="font-bold">Population:</span> {formattedPopulation}
         </p>
         <p
           className={`text-sm font-extralight leading-6 ${theme === "Light" ? "text-light" : "text-dark"}`}
